@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+    <!--创建角色-->
+    <bean id = "user" class = "com.atguigu.spring5.User"></bean>
+    <!--set注入属性-->
+    <bean id="book" class = "com.atguigu.spring5.Book">
+        <property name="bname" value="java"></property>
+        <property name="bauther" value="caiofgod"></property>
+    </bean>
+    <!--set注入空值属性-->
+    <bean id="book3" class = "com.atguigu.spring5.Book">
+        <property name="bname" value="java"></property>
+        <property name="bauther">
+            <null></null>
+        </property>
+    </bean>
+    <!--标签注入属性-->
+    <bean id = "book2" class="com.atguigu.spring5.Book"  p:bname="C++" p:bauther="cai"></bean>
+    <!--构造函数注入属性   特殊符号：转义CDATA方法：
+    <value><![CDATA[内容]]></value>-->
+    <bean id="order" class = "com.atguigu.spring5.Orders">
+        <constructor-arg name="oname"><value><![CDATA[Cai of God 's macBook]]></value></constructor-arg>
+        <constructor-arg name="address" value="NEUF"></constructor-arg>
+    </bean>
+
+
+</beans>
